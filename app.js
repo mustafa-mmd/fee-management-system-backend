@@ -1,12 +1,16 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-
+app.use(cors());
 //  Proper CORS setup
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: [
+    "http://localhost:5173",
+    "https://fee-management-system-frontend.vercel.app"
+  ],
   credentials: true
 }));
+
 
 require('dotenv').config();
 require("./libs/db");
